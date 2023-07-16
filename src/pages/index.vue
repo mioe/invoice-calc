@@ -1,13 +1,22 @@
-<script setup lang="ts">
-import HelloWorld from '~/components/HelloWorld.vue'
-</script>
-
 <template>
-	<h1>index.vue</h1>
-	<HelloWorld
-		world="world"
-	/>
-	<button>Hello, World!</button>
-	<div class="i-mi:deno w-[48px] h-[48px]" />
-	<div class="i-mi:fastify w-[48px] h-[48px] c-red-600" />
+	<div class="w-full min-h-screen flex flex-col gap-[24px] items-center justify-center">
+		<div class="flex flex-col items-center justify-center">
+			<div class="p-[4px] rounded-[8px] bg-$color-light-black mb-[16px]">
+				<div class="i-mi:command w-[48px] h-[48px]" />
+			</div>
+			<div>
+				<h1 class="text-xl c-$typography-primary">
+					invoice-calc
+				</h1>
+				<p>helper</p>
+			</div>
+		</div>
+
+		<div>
+			<button>
+				<div class="i-mi:icloud-and-arrow-up w-[18px] h-[18px]" />
+				<span>Upload photo</span>
+			</button>
+		</div>
+	</div>
 </template>

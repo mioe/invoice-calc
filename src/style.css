@@ -1,11 +1,20 @@
+:root {
+	--color-dark-black: oklch(5% 0.05 89);
+	--color-light-black: oklch(25% 0.05 89);
+	--typography-common: oklch(100% 0.05 89);
+	--typography-primary: oklch(100% 0 89);
+	--typography-interactive: oklch(100% 0.5 89);
+	--typography-interactive-hover: oklch(85% 0.5 89);
+}
+
 /* good default vite styles */
 :root {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
 	color-scheme: dark;
-	color: #dedede;
-	background-color: #242424;
+	color: var(--typography-common);
+	background-color: var(--color-dark-black);
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
@@ -50,11 +59,11 @@ dd {
 /* good default vite styles */
 a {
 	font-weight: 500;
-	color: #646cff;
+	color: var(--typography-interactive);
 	text-decoration: inherit;
 }
 a:hover {
-	color: #535bf2;
+	color: var(--typography-interactive-hover);
 }
 
 /* set core body defaults */
@@ -74,4 +83,20 @@ ol {
 img {
 	max-width: 100%;
 	display: block;
+}
+
+button {
+	padding: 4px 8px;
+	border-radius: 8px;
+	border: none;
+	display: inline-flex;
+	gap: 4px;
+	align-items: center;
+	background-color: var(--color-light-black);
+	color: var(--typography-interactive);
+	cursor: pointer;
+}
+
+button:hover {
+	outline: 2px solid var(--typography-interactive-hover);
 }
