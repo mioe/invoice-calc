@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Tesseract from 'tesseract.js'
 import Cropper from '~/components/Cropper.vue'
 
 const { t } = useI18n()
@@ -12,9 +13,17 @@ function handleUploadPhoto() {
 async function onChange(ev: any) {
 	const { target: { files } } = ev
 	const file = files[0]
-	const result = await cropperRef.value?.open({ file })
-	if (result) {
-		console.log('🦕 result', result)
+	try {
+		const result = await cropperRef.value?.open({ file }) as string
+		Tesseract.recognize(
+			result,
+			'rus+eng',
+			{ logger: m => console.log(m) },
+		).then(({ data: { text } }) => {
+			console.log(text)
+		})
+	} catch (err) {
+		console.error(err)
 	}
 }
 </script>
