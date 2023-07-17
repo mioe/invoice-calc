@@ -52,6 +52,14 @@ const onReady = () => {
 	isLoaded.value = true
 }
 
+const handleSubmit = () => {
+	submit()
+}
+
+const handleClose = () => {
+	close()
+}
+
 defineExpose({
 	open,
 })
@@ -66,20 +74,32 @@ defineExpose({
 			<header class="w-full flex shrink-0 items-center bg-$color-light-black px-[16px] py-[8px]">
 				<button
 					class="p-0"
-					@click="close"
+					@click="handleClose"
 				>
 					<div class="i-mi:chevron-left h-[24px] w-[24px]" />
 				</button>
 			</header>
-			<div class="h-full flex items-center justify-center">
+			<div class="relative h-full flex items-center justify-center">
 				<Cropper
 					ref="cropperRef"
 					:src="base64File"
 					@ready="onReady"
 				/>
-				<button @click="submit">
+				<button
+					class="absolute bottom-[24px] right-[16px] z-1"
+					@click="handleSubmit"
+				>
 					SUBMIT
 				</button>
+
+				<div
+					v-if="!isLoaded"
+					class="absolute inset-0 flex items-center justify-center bg-$color-dark-black c-$typography-interactive"
+				>
+					<div class="rounded-[8px] bg-$color-light-black p-[12px]">
+						<div class="i-mi:svg-spinners-ring-resize h-[32px] w-[32px]" />
+					</div>
+				</div>
 			</div>
 		</div>
 	</Teleport>
