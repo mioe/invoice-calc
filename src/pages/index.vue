@@ -1,9 +1,11 @@
 <script setup lang="ts">
-const { t } = useI18n()
-const isOpenCropper = ref(false)
+import Cropper from '~/components/Cropper.vue'
 
-function handleCloseCropper() {
-	isOpenCropper.value = false
+const { t } = useI18n()
+const cropperRef = ref<InstanceType<typeof Cropper> | null>(null)
+
+function handleOpenCropper() {
+	cropperRef.value?.handleOpenCropper()
 }
 </script>
 
@@ -22,29 +24,12 @@ function handleCloseCropper() {
 		</div>
 
 		<div>
-			<button @click="isOpenCropper = true">
+			<button @click="handleOpenCropper">
 				<div class="i-mi:icloud-and-arrow-up h-[18px] w-[18px]" />
 				<span>{{ t('upload') }} {{ t('photo') }}</span>
 			</button>
 		</div>
-	</div>
 
-	<Teleport to="body">
-		<div
-			v-if="isOpenCropper"
-			class="fixed bottom-0 top-0 h-screen w-full flex flex-col overscroll-auto bg-$color-dark-black"
-		>
-			<header class="w-full flex items-center bg-$color-light-black px-[16px] py-[8px]">
-				<button
-					class="p-0"
-					@click="handleCloseCropper"
-				>
-					<div class="i-mi:chevron-left h-[24px] w-[24px]" />
-				</button>
-			</header>
-			<div>
-				dd
-			</div>
-		</div>
-	</Teleport>
+		<Cropper ref="cropperRef" />
+	</div>
 </template>
