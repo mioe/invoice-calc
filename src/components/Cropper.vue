@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Cropper } from 'vue-advanced-cropper'
+import Loader from '~/components/Loader.vue'
 
 const cropperRef = ref<InstanceType<typeof Cropper> | null>(null)
 
@@ -92,14 +93,7 @@ defineExpose({
 					SUBMIT
 				</button>
 
-				<div
-					v-if="!isLoaded"
-					class="absolute inset-0 flex items-center justify-center bg-$color-dark-black c-$typography-interactive"
-				>
-					<div class="rounded-[8px] bg-$color-light-black p-[12px]">
-						<div class="i-mi:svg-spinners-ring-resize h-[32px] w-[32px]" />
-					</div>
-				</div>
+				<Loader :is-loading="!isLoaded" />
 			</div>
 		</div>
 	</Teleport>
