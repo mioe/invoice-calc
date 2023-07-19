@@ -1,0 +1,1 @@
+const e={hello:o=>{const{normalize:r}=o;return r(["hello"])},helper:o=>{const{normalize:r}=o;return r(["helper"])},upload:o=>{const{normalize:r}=o;return r(["upload"])},photo:o=>{const{normalize:r}=o;return r(["photo"])},crop:o=>{const{normalize:r}=o;return r(["crop"])}};export{e as default};
