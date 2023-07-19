@@ -2,6 +2,8 @@
 import { Cropper } from 'vue-advanced-cropper'
 import Loader from '~/components/Loader.vue'
 
+const { t } = useI18n()
+
 const cropperRef = ref<InstanceType<typeof Cropper> | null>(null)
 
 const isOpen = ref(false)
@@ -87,10 +89,12 @@ defineExpose({
 					@ready="onReady"
 				/>
 				<button
-					class="absolute bottom-[24px] right-[16px] z-1"
+					v-if="isLoaded"
+					class="fixed bottom-[24px] right-[16px] z-1"
 					@click="handleSubmit"
 				>
-					SUBMIT
+					<div class="i-mi:crop h-[18px] w-[18px]" />
+					<span>{{ t('crop') }}</span>
 				</button>
 
 				<Loader :is-loading="!isLoaded" />
