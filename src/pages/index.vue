@@ -4,7 +4,10 @@ import Cropper from '~/components/Cropper.vue'
 import Loader from '~/components/Loader.vue'
 
 const { t } = useI18n()
-const inputFileRef = ref<HTMLInputElement | null>(null)
+const appStore = useAppStore()
+const { setPreview, setBodyText } = appStore
+const router = useRouter()
+const inputFileRef = shallowRef<HTMLInputElement | null>(null)
 const cropperRef = ref<InstanceType<typeof Cropper> | null>(null)
 const isLoading = ref(false)
 const recognizeProgress = ref(0)
@@ -17,18 +20,19 @@ async function onChange(ev: any) {
 	const { target: { files } } = ev
 	const file = files[0]
 	try {
-		const result = await cropperRef.value?.open({ file }) as string
+		const preview = await cropperRef.value?.open({ file }) as File
+		setPreview(preview)
 		isLoading.value = true
 		recognizeProgress.value = 0
 		Tesseract.recognize(
-			result,
+			preview,
 			'rus+eng',
 			{ logger: m => {
 				recognizeProgress.value = m.progress
 			} },
 		).then(({ data: { text } }) => {
-			console.log(text)
-			isLoading.value = false
+			setBodyText(text)
+			router.push({ name: 'edit' })
 		})
 	} catch (err) {
 		console.error(err)

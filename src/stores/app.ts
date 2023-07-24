@@ -2,20 +2,22 @@ import { ref } from 'vue'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 
 export const useAppStore = defineStore('app', () => {
-	const count = ref(0)
+	const previewImageBase64 = ref<string | undefined>()
+	const bodyText = ref<string | null>(null)
 
-	function increment() {
-		count.value++
+	function setPreview(file: File) {
+		previewImageBase64.value = URL.createObjectURL(file)
 	}
 
-	function decrement() {
-		count.value--
+	function setBodyText(text: string) {
+		bodyText.value = text
 	}
 
 	return {
-		count,
-		increment,
-		decrement,
+		previewImageBase64,
+		bodyText,
+		setPreview,
+		setBodyText,
 	}
 })
 

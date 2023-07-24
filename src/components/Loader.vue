@@ -4,7 +4,7 @@ const props = defineProps<{
 	progress?: number
 }>()
 
-const getProgress = computed(() => Number(props.progress?.toFixed(2)) * 100)
+const getProgress = computed(() => props.progress?.toFixed(2))
 </script>
 
 <template>
