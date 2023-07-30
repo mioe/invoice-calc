@@ -8,7 +8,7 @@ const appStore = useAppStore()
 const { setInvoiceItems } = appStore
 const router = useRouter()
 const inputFileRef = shallowRef<HTMLInputElement | null>(null)
-const cropperRef = ref<InstanceType<typeof Cropper> | null>(null)
+const cropperRef = shallowRef<InstanceType<typeof Cropper> | null>(null)
 const isLoading = ref(false)
 const recognizeProgress = ref(0)
 

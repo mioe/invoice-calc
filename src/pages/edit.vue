@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import InvoiceItem from '~/components/InvoiceItem.vue'
+
 const router = useRouter()
 const appStore = useAppStore()
 
@@ -10,12 +12,10 @@ onMounted(() => {
 
 <template>
 	<div class="min-h-screen w-full p-[8px]">
-		<div
+		<InvoiceItem
 			v-for="i in appStore.invoiceItems"
 			:key="i.key"
-		>
-			{{ i.key }}
-			{{ i.value }}
-		</div>
+			:item="i"
+		/>
 	</div>
 </template>

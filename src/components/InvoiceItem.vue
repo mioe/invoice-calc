@@ -6,7 +6,15 @@ const props = defineProps<{
 </script>
 
 <template>
-	<div>
-		ddd
+	<div
+		:id="item.id"
+		class="flex justify-between bg-yellow-900"
+	>
+		<div>
+			{{ item.key }}
+		</div>
+		<div>
+			{{ item.value }}
+		</div>
 	</div>
 </template>
