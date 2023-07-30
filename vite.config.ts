@@ -54,5 +54,10 @@ export default defineConfig(({ command, mode }) => {
 				vueTemplate: true,
 			}),
 		],
+
+		// https://github.com/vitest-dev/vitest
+		test: {
+			include: ['test/**/*.test.ts'],
+		},
 	}
 })
