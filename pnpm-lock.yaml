@@ -14,6 +14,9 @@ dependencies:
   tesseract.js:
     specifier: ^4.1.1
     version: 4.1.1
+  uuid:
+    specifier: ^9.0.0
+    version: 9.0.0
   vue:
     specifier: ^3.3.4
     version: 3.3.4
@@ -40,6 +43,9 @@ devDependencies:
   '@types/node':
     specifier: ^20.4.5
     version: 20.4.5
+  '@types/uuid':
+    specifier: ^9.0.2
+    version: 9.0.2
   '@unocss/eslint-config':
     specifier: ^0.54.0
     version: 0.54.0(eslint@8.46.0)(typescript@5.1.6)
@@ -652,6 +658,10 @@ packages:
 
   /@types/semver@7.5.0:
     resolution: {integrity: sha512-G8hZ6XJiHnuhQKR7ZmysCeJWE08o8T0AXtk5darsCaTVsYZhhgUrq53jizaR2FvsoeCwJhlmwTjkXBY5Pn/ZHw==}
+    dev: true
+
+  /@types/uuid@9.0.2:
+    resolution: {integrity: sha512-kNnC1GFBLuhImSnV7w4njQkUiJi0ZXUycu1rUaouPqiKlXkh77JKgdRnTAp1x5eBwcIwbtI+3otwzuIDEuDoxQ==}
     dev: true
 
   /@types/web-bluetooth@0.0.17:
@@ -2984,6 +2994,11 @@ packages:
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: true
+
+  /uuid@9.0.0:
+    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
+    hasBin: true
+    dev: false
 
   /vite-plugin-pages@0.31.0(vite@4.4.7):
     resolution: {integrity: sha512-fw3onBfVTXQI7rOzAbSZhmfwvk50+3qNnGZpERjmD93c8nEjrGLyd53eFXYMxcJV4KA1vzi4qIHt2+6tS4dEMw==}

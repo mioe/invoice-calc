@@ -5,7 +5,7 @@ import Loader from '~/components/Loader.vue'
 
 const { t } = useI18n()
 const appStore = useAppStore()
-const { setPreview, setBodyText } = appStore
+const { setInvoiceItems } = appStore
 const router = useRouter()
 const inputFileRef = shallowRef<HTMLInputElement | null>(null)
 const cropperRef = ref<InstanceType<typeof Cropper> | null>(null)
@@ -21,7 +21,6 @@ async function onChange(ev: any) {
 	const file = files[0]
 	try {
 		const preview = await cropperRef.value?.open({ file }) as File
-		setPreview(preview)
 		isLoading.value = true
 		recognizeProgress.value = 0
 		Tesseract.recognize(
@@ -31,7 +30,7 @@ async function onChange(ev: any) {
 				recognizeProgress.value = m.progress
 			} },
 		).then(({ data: { text } }) => {
-			setBodyText(text)
+			setInvoiceItems(text)
 			router.push({ name: 'edit' })
 		})
 	} catch (err) {
