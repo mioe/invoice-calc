@@ -1,0 +1,1 @@
+const o={hello:r=>{const{normalize:e}=r;return e(["привет"])},helper:r=>{const{normalize:e}=r;return e(["помощник"])},upload:r=>{const{normalize:e}=r;return e(["загрузить"])},photo:r=>{const{normalize:e}=r;return e(["фото"])},crop:r=>{const{normalize:e}=r;return e(["обрезать"])},clear:r=>{const{normalize:e}=r;return e(["очистить"])}};export{o as default};
